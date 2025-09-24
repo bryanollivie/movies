@@ -1,7 +1,6 @@
 package com.example.comics.repository
 
 import android.util.Log
-import com.google.common.hash.Hashing
 import java.math.BigInteger
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
