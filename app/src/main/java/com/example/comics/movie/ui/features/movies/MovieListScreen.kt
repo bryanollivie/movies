@@ -16,8 +16,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.comics.movie.core.common.Result
 import com.example.comics.movie.domain.model.Movie
+import com.example.comics.movie.ui.navigation.Routes
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+
 @Composable
 fun MovieListScreen(
     navController: NavController,
@@ -58,7 +60,7 @@ fun MovieListScreen(
                     items(movies) { movie ->
                         MovieItem(movie = movie) {
                             //click
-                            //navController.navigate("movieDetail/${movie.id}")
+                            navController.navigate(Routes.movieDetailRoute(movie.id))
                         }
                         Divider()
                     }
