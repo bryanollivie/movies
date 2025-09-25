@@ -139,6 +139,7 @@ dependencies {
 
     // Core desugaring
     coreLibraryDesugaring(libs.desugar.jdk.libs)
+    testImplementation(kotlin("test"))
 
 }
 

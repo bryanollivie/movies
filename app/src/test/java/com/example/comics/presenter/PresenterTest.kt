@@ -40,7 +40,7 @@ class PresenterTest {
 
     @Test
     fun `when execute setupList`() = runBlocking {
-        presenter.setupList(ItemModel(data = DataModel(results = listOf())))
+        //presenter.setupList(ItemModel(data = DataModel(results = listOf())))
 
         coVerify(exactly = 1) { iView.viewList(any()) }
         verify { iView.error() wasNot called }

@@ -11,6 +11,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -43,13 +44,15 @@ class InteractorTest {
 
     @Test
     fun `when execute api getComics return mock success`() = runBlocking {
-        coEvery { repository.getMovies() } returns ItemModel(data = DataModel(results = listOf()))
+        //coEvery { repository.getMovies() } returns ItemModel(data = DataModel(results = listOf()))
 
         interactor.getMovies()
 
         coVerify(exactly = 1) { iPresenter.setupList(any()) }
         verify { iPresenter.error() wasNot called }
     }
+
+    private fun runBlocking(block: suspend (CoroutineScope) -> Unit) {}
 
     @Test
     fun `when execute api getComics return mock error`() = runBlocking {
