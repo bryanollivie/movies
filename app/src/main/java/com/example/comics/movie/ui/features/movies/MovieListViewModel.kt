@@ -23,7 +23,7 @@ class MovieListViewModel @Inject constructor(
         fetchMovies()
     }
 
-    private fun fetchMovies() {
+    fun fetchMovies() {
         viewModelScope.launch {
             getTrendingMovies().collect { result ->
                 _uiState.value = result
@@ -31,11 +31,3 @@ class MovieListViewModel @Inject constructor(
         }
     }
 }
-
-data class MovieListUiState(
-    val movies: List<Movie> = emptyList(),
-    val isLoading: Boolean = false,
-    val isLoadingMore: Boolean = false,
-    val error: String? = null,
-    val errorSnackbar: String? = null
-)

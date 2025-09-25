@@ -16,44 +16,54 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.comics.movie.core.common.Result
 import com.example.comics.movie.domain.model.Movie
-
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 @Composable
 fun MovieListScreen(
     navController: NavController,
     viewModel: MovieListViewModel = hiltViewModel()
 ) {
     val state by viewModel.uiState.collectAsState()
+    val isRefreshing = state is Result.Loading && (state as? Result.Success<*>) != null
 
-    when (state) {
-        is Result.Loading -> Box(
-            Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            CircularProgressIndicator()
-        }
-
-        is Result.Error -> Box(
-            Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text("Erro ao carregar filmes")
-        }
-
-        is Result.Success -> {
-            val movies = (state as Result.Success<List<Movie>>).data
-
-            LazyColumn(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(movies) { movie ->
-                    MovieItem(movie = movie) {
-                        //click
-                        //navController.navigate("movieDetail/${movie.id}")
+    SwipeRefresh(
+        state = rememberSwipeRefreshState(isRefreshing),
+        onRefresh = { viewModel.fetchMovies() }
+    ) {
+        when (state) {
+            is Result.Loading -> {
+                if ((state as? Result.Success<*>) == null) {
+                    Box(
+                        Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
                     }
-                    Divider()
+                }
+            }
+
+            is Result.Error -> Box(
+                Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Erro ao carregar filmes")
+            }
+
+            is Result.Success -> {
+                val movies = (state as Result.Success<List<Movie>>).data
+
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    items(movies) { movie ->
+                        MovieItem(movie = movie) {
+                            //click
+                            //navController.navigate("movieDetail/${movie.id}")
+                        }
+                        Divider()
+                    }
                 }
             }
         }
     }
 }
-
