@@ -33,7 +33,7 @@ android {
             properties.load(localPropertiesFile.inputStream())
         }
         buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY", "")}\"")
-        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3\"")
+        buildConfigField("String", "API_BASE_URL", "\"${properties.getProperty("API_BASE_URL", "")}\"")
     }
 
     buildTypes {
