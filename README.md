@@ -10,6 +10,9 @@ Architecture + MVVM**, utilizando **Jetpack Compose** para a interface.
 
 ## 🎬 O App
 ![Screen_recording_20250925_000623 webm](https://github.com/user-attachments/assets/d2b135cf-11e8-48f6-b8e6-6dcdef0e56dd)
+------------------------------------------------------------------------
+## 🛠️ Desenho de Arquitetura do Projeto
+<img width="4604" height="4328" alt="mercado_bitcoin-Página-1 drawio" src="https://github.com/user-attachments/assets/ff08b3d8-7661-4852-a7b6-4c66221461c7" />
 
 
 ------------------------------------------------------------------------
