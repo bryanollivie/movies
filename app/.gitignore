@@ -1,1 +1,108 @@
-/build
+# ==========================================
+# Gradle
+# ==========================================
+.gradle/
+build/
+!gradle-wrapper.jar
+gradle-app.setting
+
+# ==========================================
+# IntelliJ / Android Studio
+# ==========================================
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ==========================================
+# Android
+# ==========================================
+# Gradle build cache
+.gradle/
+local.properties
+
+# Logs
+*.log
+
+# Android specific
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+*.aab
+
+# NDK
+obj/
+*.so
+
+# Keystore files (⚠️ mantenha fora do repositório!)
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# ==========================================
+# Kotlin / Java
+# ==========================================
+*.class
+*.jar
+*.war
+*.ear
+*.dex
+
+# Kotlin multiplatform specific
+build/kotlin
+build/js
+build/ios
+build/native
+
+# ==========================================
+# OS-specific
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Test / Reports
+# ==========================================
+test-output/
+reports/
+coverage/
+*.hprof
+
+# ==========================================
+# Lint / Analysis
+# ==========================================
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+
+# ==========================================
+# Cache
+# ==========================================
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# ==========================================
+# VS Code
+# ==========================================
+.vscode/
+
+# ==========================================
+# Fastlane (caso use CI/CD com fastlane)
+# ==========================================
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# ==========================================
+# Misc
+# ==========================================
+/*.hprof
+/secrets.properties
