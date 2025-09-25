@@ -26,7 +26,7 @@ data class MovieDto(
     val releaseDate: String?,
 
     @SerialName("vote_average")
-    val voteAverage:String?,
+    val voteAverage: String?,
     @SerialName("vote_count")
     val voteCount: Int?,
 
